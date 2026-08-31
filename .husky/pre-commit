@@ -1,0 +1,2 @@
+# Buka file .husky/pre-commit lalu ganti baris terakhirnya menjadi ini:
+npm lint-staged
