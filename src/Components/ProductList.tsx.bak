@@ -1,0 +1,60 @@
+interface ProductListProps {
+  isLoading: boolean;
+  products: {
+    id: number;
+    title: string;
+    price: number;
+    discount: boolean;
+    isOutOfStock: boolean;
+  }[];
+}
+
+export const ProductList = ({ isLoading, products }: ProductListProps) => {
+  if (isLoading) {
+    return <div>Memuat data produk dari server...</div>;
+  }
+
+  if (products.length === 0) {
+    return <div>Tidak ada produk yang tersedia..</div>;
+  }
+
+  // 1. Data Raw Product List
+  // const productList = [
+  //   {
+  //     id: 1,
+  //     title: "Essence Mascara",
+  //     price: 9.99,
+  //     discount: false,
+  //     isOutOfStock: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Eye Shadow",
+  //     price: 29.99,
+  //     discount: true,
+  //     isOutOfStock: false,
+  //   },
+  // ];
+
+  const hasDiscount = true;
+  const isOutOfStock = true;
+
+  return (
+    <>
+      <div>
+        {products.map((product) => (
+          <div key={product.id}>
+            <h4>{product.title}</h4>
+            <p>${product.price}</p>
+            {hasDiscount == product.discount ? (
+              <span>Product Sedang Diskon</span>
+            ) : (
+              <span>Product Tidak Sedang Diskon</span>
+            )}
+            {isOutOfStock == product.isOutOfStock && <span>Stok Habis!</span>}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
