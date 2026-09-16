@@ -14,8 +14,20 @@ const LoginPage = () => {
     // Mencegah browser refresh page total agar status aplikasi SPA tidak hilang
     event.preventDefault();
 
-    // Simulasi request data email kasir yang clean ke console.log
-    console.log(`Mengirim data login untuk email : ${email}`);
+    try {
+      const response = {
+        token: "abcd12345678",
+      };
+
+      // simpan ke localstorage
+      localStorage.setItem("cashier_token", response.token);
+      alert("Selamat anda bisa login");
+
+      window.location.href = "/stock";
+    } catch (error) {
+      alert("Login gagal, tolong cek lagi form nya...");
+      console.log("Login gagal:", error);
+    }
   };
 
   return (

@@ -1,10 +1,10 @@
-import { OrderSummary } from "../Components/OrderSummary";
+import { Link } from "react-router-dom";
 
 export const DashboardCashier = () => {
   return (
     <>
       <div>
-        <OrderSummary productName="Coffee Latte" totalItem={300} />
+        <Link to="/login">Login Masuk</Link>
       </div>
     </>
   );
