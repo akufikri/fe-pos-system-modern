@@ -5,12 +5,22 @@ import ProductDetail from "@/pages/product/DetailProduct";
 import { ProtectedRoute } from "./protectedRoute";
 import StockPage from "@/pages/StockPage";
 import { NotFoundPage } from "@/pages/error/NotFoundPage";
+import CategoriesPages from "@/pages/CategoriesPage";
+import DetailCategoriesPage from "@/pages/DetailCategoriesPage";
 
 export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <DashboardCashier />,
     errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/categories/product",
+    element: <CategoriesPages />,
+  },
+  {
+    path: "/categories/product/:slug",
+    element: <DetailCategoriesPage />,
   },
   {
     path: "/login",
